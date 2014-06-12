@@ -1,4 +1,0 @@
-assetmanager
-============
-
-lua-test-demo
