@@ -1,4 +1,4 @@
 function myadd(x, y)
-	print("luaScript version 3")
+	print("luaTest,luaTest2,hello")
     return x + y
 end
