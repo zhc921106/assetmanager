@@ -11,13 +11,15 @@ echo (utils.File:writeablePath());
 
 local javaBridgeCenter = require("center.javaBridgeCenter");
 local objcBridgeCenter = require("center.objcBridgeCenter");
+local app = ASApplication.getInstance();
 
 echo ("##################################################")
--- echo ("platform    #", utils.device:platform())
-echo ("platform    #", sys.platform)
+echo ("version      #", app:getVersion());
+echo ("sound        #", app:getsoundToggle())
+echo ("platform     #", sys.platform)
 
-echo ("device id   #", utils.device:deviceID())
-echo ("device name #", utils.device:deviceName())
+echo ("device id    #", utils.device:deviceID())
+echo ("device name  #", utils.device:deviceName())
 
 echo ("luaj  # javaBridgeCenter.getAndroidUid       $ ", javaBridgeCenter.getAndroidUid())
 echo ("luaj  # javaBridgeCenter.getAndroidName      $ ", javaBridgeCenter.getAndroidName())
@@ -33,19 +35,21 @@ echo ("遍历 writeablePath")
 local list = utils.Dir:list(utils.File:writeablePath());
 var_dump(list)
 
+-- echo ("##################################################")
+-- echo ("网络测试")
+
+-- local completion = function(request)
+-- 	var_dump(request.response);
+-- 	echo ("##################################################")
+-- end
+-- local errorHandler = function(request)
+-- 	echo (request.error);
+-- 	echo ("##################################################")
+-- end
+
+-- -- local request = ASHttpRequest.create(completion, errorHandler);
+-- -- request:setRequestHeader({nihao = "luwei"})
+-- -- request:send("http://localhost/~luwei/")
 echo ("##################################################")
-echo ("网络测试&更新测试 version1")
 
-local completion = function(request)
-	var_dump(request.response);
-	echo ("##################################################")
-end
-local errorHandler = function(request)
-	echo (request.error);
-	echo ("##################################################")
-end
-
-local request = ASHttpRequest.create(completion, errorHandler);
-request:setRequestHeader({nihao = "luwei"})
-request:send("http://localhost/~luwei/")
 
